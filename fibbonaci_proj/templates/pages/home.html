@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="col-md-6 col-md-offset-6">
+	{% if n %}
+	<h3> The {{ n|ordinal }} fibbonaci term is {{ term }}</h3>
+	<p>Response time: {{timetaken}}ms</p>
+	{% endif %}
+	<form action="" method="post">
+	    {% csrf_token %}
+	    {{ form|crispy}}
+	    <input type="submit" value="Submit" class="btn btn-default" />
+	</form>
+</div>
+{% endblock content %}
